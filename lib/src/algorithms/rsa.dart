@@ -1,4 +1,4 @@
-part of encrypt;
+part of '../../encrypt.dart';
 
 // Abstract class for encryption and signing.
 abstract class AbstractRSA {
@@ -287,7 +287,7 @@ class RSAKeyParser {
   }
 
   ASN1Sequence _pkcs8PublicSequence(ASN1Sequence sequence) {
-    if (sequence.elements == null || sequence.elements!.length < 1) {
+    if (sequence.elements == null || sequence.elements!.isEmpty) {
       throw FormatException('Unable to parse key, invalid format.');
     }
     final ASN1Object? bitString = sequence.elements?[1];

@@ -1,13 +1,13 @@
-part of encrypt;
+part of '../encrypt.dart';
 
-/// Represents an encripted value.
+/// Represents an encrypted value.
 class Encrypted {
   /// Creates an Encrypted object from a Uint8List.
   Encrypted(this._bytes);
 
   final Uint8List _bytes;
 
-  /// Creates an Encrypted object from a hexdecimal string.
+  /// Creates an Encrypted object from a hexadecimal string.
   Encrypted.fromBase16(String encoded) : _bytes = decodeHexString(encoded);
 
   /// Creates an Encrypted object from a Base64 string.
@@ -38,7 +38,7 @@ class Encrypted {
   /// Gets the Encrypted bytes.
   Uint8List get bytes => _bytes;
 
-  /// Gets the Encrypted bytes as a Hexdecimal representation.
+  /// Gets the Encrypted bytes as a Hexadecimal representation.
   String get base16 =>
       _bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
 
@@ -63,7 +63,7 @@ class IV extends Encrypted {
   /// Creates an Initialization Vector object from a Uint8List.
   IV(Uint8List bytes) : super(bytes);
 
-  /// Creates an Initialization Vector object from a hexdecimal string.
+  /// Creates an Initialization Vector object from a hexadecimal string.
   IV.fromBase16(String encoded) : super.fromBase16(encoded);
 
   /// Creates an Initialization Vector object from a Base64 string.
@@ -92,7 +92,7 @@ class Key extends Encrypted {
   /// Creates an Encryption Key object from a Uint8List.
   Key(Uint8List bytes) : super(bytes);
 
-  /// Creates an Encryption Key object from a hexdecimal string.
+  /// Creates an Encryption Key object from a hexadecimal string.
   Key.fromBase16(String encoded) : super.fromBase16(encoded);
 
   /// Creates an Encryption Key object from a Base64 string.

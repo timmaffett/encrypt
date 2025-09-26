@@ -12,7 +12,7 @@ A set of high-level APIs over PointyCastle for two-way cryptography.
 
 > Looking for password hashing? Please, visit [password](https://github.com/leocavalcante/password-dart).
 
-### Secure random
+## Secure random
 
 You can generate cryptographically secure random keys and IVs for you project.
 
@@ -36,7 +36,7 @@ $ secure-random --help
 -l, --length       The length of the bytes
                    (defaults to "32")
 
--b, --base         Bytes represented as base 64 or base 16 (Hexdecimal)
+-b, --base         Bytes represented as base 64 or base 16 (Hexadecimal)
                    (defaults to "64")
 
 -h, --[no-]help    Show this help message
@@ -50,7 +50,7 @@ Current status is:
 - RSA with PKCS1 and OAEP encoding
 - Salsa20
 
-### Signing
+## Signing
 
 - SHA256 with RSA
 

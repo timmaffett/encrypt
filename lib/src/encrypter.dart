@@ -1,4 +1,4 @@
-part of encrypt;
+part of '../encrypt.dart';
 
 /// Wraps Algorithms in a unique Container.
 class Encrypter {
@@ -32,7 +32,7 @@ class Encrypter {
     );
   }
 
-  /// Calls [decrypt] on the wrapped Algorith without UTF-8 decoding.
+  /// Calls [decrypt] on the wrapped Algorithm without UTF-8 decoding.
   List<int> decryptBytes(Encrypted encrypted,
       {IV? iv, Uint8List? associatedData}) {
     return algo

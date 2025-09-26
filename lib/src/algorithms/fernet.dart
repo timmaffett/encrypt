@@ -1,4 +1,4 @@
-part of encrypt;
+part of '../../encrypt.dart';
 
 /// Wraps the Fernet Algorithm.
 class Fernet implements Algorithm {
@@ -52,7 +52,7 @@ class Fernet implements Algorithm {
     }
     _verifySignature(data);
     if (iv != null) {
-      throw StateError('IV must be infered from token');
+      throw StateError('IV must be inferred from token');
     }
     iv = IV(Uint8List.fromList(data.sublist(9, 25)));
     final length = data.length;
@@ -77,7 +77,7 @@ class Fernet implements Algorithm {
       //  larger than max int (of js double) we can store because
       //  .now().millisecondsSinceEpoch would have the same
       //  overloading problem -we'll all be dead when it overflows
-      //  (max int of double/millseconds in year
+      //  (max int of double/milliseconds in year
       //   =9007199254740991 / 3.154e+10 = 285580 years from 1970)
       final int hi = bdata.getUint32(0, Endian.big);
       final int low = bdata.getUint32(4, Endian.big);

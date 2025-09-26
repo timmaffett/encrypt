@@ -1,4 +1,4 @@
-part of encrypt;
+part of '../../encrypt.dart';
 
 /// Wraps the AES Algorithm.
 class AES implements Algorithm {
