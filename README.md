@@ -1,10 +1,11 @@
 > [!CAUTION]
-> I'm not being able to properly maintain this package, so it is being archived. Feel free to use some fork as an alternative.
+> The repo from this package has moved from https://github.com/leocavalcante/encrypt to https://github.com/timmaffett/encrypt
+> as https://github.com/timmaffett will be the the (proposed) new maintainer of the encrypt package.
 
 # encrypt
 
 [![Pub Package](https://img.shields.io/pub/v/encrypt.svg)](https://pub.dartlang.org/packages/encrypt)
-[![Dart CI](https://github.com/leocavalcante/encrypt/actions/workflows/dart.yaml/badge.svg)](https://github.com/leocavalcante/encrypt/actions/workflows/dart.yaml)
+[![Dart CI](https://github.com/timmaffett/encrypt/actions/workflows/dart.yaml/badge.svg)](https://github.com/timmaffett/encrypt/actions/workflows/dart.yaml)
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E4F45BFVMFVQW)
 
 A set of high-level APIs over PointyCastle for two-way cryptography.

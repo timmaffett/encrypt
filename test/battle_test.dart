@@ -9,8 +9,8 @@ void main() {
 
       expect(
           Encrypted.fromBase64(encoded),
-          equals(
-            encrypter.encrypt('Text to encrypt 😀', iv: IV.allZerosOfLength(16))));
+          equals(encrypter.encrypt('Text to encrypt 😀',
+              iv: IV.allZerosOfLength(16))));
     });
   });
 }

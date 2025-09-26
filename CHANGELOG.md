@@ -1,3 +1,10 @@
+# 5.0.5
+
+- Update dependencies
+- Remove ASN1Lib package dependency as pointycastle now includes complete ASN1 support
+- Combine multiple `hide` combinators in encrypt.dart and test/signer_test.dart
+
+
 # 5.0.4
 
 - Force Pointycastle version

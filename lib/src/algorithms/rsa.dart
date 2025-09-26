@@ -248,18 +248,28 @@ class RSAKeyParser {
   }
 
   RSAAsymmetricKey _parsePublic(ASN1Sequence sequence) {
-    final modulus = (sequence.elements[0] as ASN1Integer).valueAsBigInteger;
-    final exponent = (sequence.elements[1] as ASN1Integer).valueAsBigInteger;
-
+    if (sequence.elements == null || sequence.elements!.length < 2) {
+      throw FormatException('Unable to parse key, invalid format.');
+    }
+    final modulus = (sequence.elements?[0] as ASN1Integer).integer;
+    final exponent = (sequence.elements?[1] as ASN1Integer).integer;
+    if (modulus == null || exponent == null) {
+      throw FormatException('Unable to parse key, invalid format.');
+    }
     return RSAPublicKey(modulus, exponent);
   }
 
   RSAAsymmetricKey _parsePrivate(ASN1Sequence sequence) {
-    final modulus = (sequence.elements[1] as ASN1Integer).valueAsBigInteger;
-    final exponent = (sequence.elements[3] as ASN1Integer).valueAsBigInteger;
-    final p = (sequence.elements[4] as ASN1Integer).valueAsBigInteger;
-    final q = (sequence.elements[5] as ASN1Integer).valueAsBigInteger;
-
+    if (sequence.elements == null || sequence.elements!.length < 6) {
+      throw FormatException('Unable to parse key, invalid format.');
+    }
+    final modulus = (sequence.elements?[1] as ASN1Integer).integer;
+    final exponent = (sequence.elements?[3] as ASN1Integer).integer;
+    final p = (sequence.elements?[4] as ASN1Integer).integer;
+    final q = (sequence.elements?[5] as ASN1Integer).integer;
+    if (modulus == null || exponent == null || p == null || q == null) {
+      throw FormatException('Unable to parse key, invalid format.');
+    }
     return RSAPrivateKey(modulus, exponent, p, q);
   }
 
@@ -277,16 +287,28 @@ class RSAKeyParser {
   }
 
   ASN1Sequence _pkcs8PublicSequence(ASN1Sequence sequence) {
-    final ASN1Object bitString = sequence.elements[1];
-    final bytes = bitString.valueBytes().sublist(1);
+    if (sequence.elements == null || sequence.elements!.length < 1) {
+      throw FormatException('Unable to parse key, invalid format.');
+    }
+    final ASN1Object? bitString = sequence.elements?[1];
+    if (bitString == null) {
+      throw FormatException('Unable to parse key, invalid format.');
+    }
+    final bytes = bitString.valueBytes?.sublist(1);
+    if (bytes == null) {
+      throw FormatException('Unable to parse key, invalid format.');
+    }
     final parser = ASN1Parser(Uint8List.fromList(bytes));
 
     return parser.nextObject() as ASN1Sequence;
   }
 
   ASN1Sequence _pkcs8PrivateSequence(ASN1Sequence sequence) {
-    final ASN1Object bitString = sequence.elements[2];
-    final bytes = bitString.valueBytes();
+    if (sequence.elements == null || sequence.elements!.length < 2) {
+      throw FormatException('Unable to parse key, invalid format.');
+    }
+    final ASN1Object bitString = sequence.elements![2];
+    final bytes = bitString.valueBytes;
     final parser = ASN1Parser(bytes);
 
     return parser.nextObject() as ASN1Sequence;

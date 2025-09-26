@@ -4,11 +4,12 @@ import 'dart:convert' as convert;
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:asn1lib/asn1lib.dart';
+//import 'package:asn1lib/asn1lib.dart';
 import 'package:clock/clock.dart';
 import 'package:collection/collection.dart';
 import 'package:crypto/crypto.dart' hide Digest;
-import 'package:pointycastle/export.dart' hide Signer hide RSASigner;
+import 'package:pointycastle/asn1.dart';
+import 'package:pointycastle/export.dart' hide Signer, RSASigner;
 
 part 'src/utils.dart';
 

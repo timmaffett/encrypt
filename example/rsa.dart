@@ -9,7 +9,7 @@ void main() async {
   Encrypter encrypter;
   Encrypted encrypted;
   String decrypted;
-  
+
   // PKCS1 (Default)
   encrypter = Encrypter(RSA(publicKey: publicKey, privateKey: privKey));
   encrypted = encrypter.encrypt(plainText);
@@ -35,14 +35,12 @@ void main() async {
   print(encrypted.base64);
 
   // OAEP (SHA256)
-  encrypter = Encrypter(
-    RSA(
-      publicKey: publicKey,
-      privateKey: privKey,
-      encoding: RSAEncoding.OAEP,
-      digest: RSADigest.SHA256,
-    )
-  );
+  encrypter = Encrypter(RSA(
+    publicKey: publicKey,
+    privateKey: privKey,
+    encoding: RSAEncoding.OAEP,
+    digest: RSADigest.SHA256,
+  ));
   encrypted = encrypter.encrypt(plainText);
   decrypted = encrypter.decrypt(encrypted);
 
